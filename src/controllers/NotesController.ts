@@ -20,6 +20,13 @@ class NotesController {
       return res.status(400).send({ error: err });
     }
   }
+
+  async delete(req: Request, res: Response) {
+    const { id } = req.params;
+    const response = await getRepository(Notes).findOne({ id });
+
+    return res.json(response);
+  }
 }
 
 export default new NotesController();
