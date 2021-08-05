@@ -22,10 +22,9 @@ class NotesController {
   }
 
   async delete(req: Request, res: Response) {
-    const { id } = req.params;
-    const response = await getRepository(Notes).findOne({ id });
+    const results = await getRepository(Notes).delete(req?.params?.id);
 
-    return res.json(response);
+    return res.json(results);
   }
 }
 
