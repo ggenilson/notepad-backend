@@ -22,8 +22,7 @@ class NotesController {
   }
 
   async delete(req: Request, res: Response) {
-    const results = await getRepository(Notes).delete(req?.params?.id);
-
+    const results = await getRepository(Notes).delete(req.params.id);
     return res.json(results);
   }
 }
